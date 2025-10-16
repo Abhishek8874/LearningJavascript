@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM With Abhi</title>
+</head>
+<body style=" background-color: #212121; color: #fff;">
+    <div class="parent">
+        <div class="day">Mon</div>
+        <div class="day">Tue</div>
+        <div class="day">Wed</div>
+        <div class="day">Thur</div>
+ 
+    </div>
+    
+</body>
+<script>
+
+    const parent = document.querySelector(".parent ")
+    console.log(parent);
+    console.log(parent.children);
+    console.log(parent.children[1].innerHTML);
+    for (let i = 0; i < parent.children.length; i++) {
+       //console.log(parent.children[i].innerHTML);
+        
+    }
+     parent.children[1].style.color ="orange"
+    //  console.log(parent.firstElementchild);
+    //  console.log(parent.lastElementChild);
+    const day = document.querySelector('.day')
+    // console.log(day);
+    // console.log(day.parentElement);
+    // console.log(day.nextElementSibling);
+    
+    // console.log("NODES:  ", parent.childNodes);
+
+
+    //  +++++++++++++ ccreating element  +++++++++++++ /////////
+
+    const div = document.createElement('div')
+    console.log(div);
+    div.className="main"
+    // div.id = "id"
+    div.id = Math.round(Math.random()*10+1)
+    div.setAttribute("title","genrated title")
+    div.style.backgroundColor = "blue"
+    div.style.padding= "12px"
+    // div.innerText = "hello ,Creating new ELemnet"
+    const add = document.createTextNode("hello , creating new element") // inner HTML OVERRRIDES THEN IT SHOW THE ELEMENT , IT TAKES ITS VALVE FIRSTFROM SET AATRIBUTE
+    div.appendChild(add)
+    document.body.appendChild(div) // here attaching the element to web page
+    
+    
+     
+     
+
+</script>
+</html>
