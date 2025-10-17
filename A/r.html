@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Abhishek</title>
+</head>
+<body style=" background-color: #212121; color: #fff;">
+    <ul class="language">
+        <li>Javascript</li>
+    </ul>
+    
+</body>
+<script>
+    function addLnag(langName) {
+        const li = document.createElement('li')
+            li.innerHTML = `${langName}`
+            document.querySelector('.language').
+            appendChild(li)
+            
+    }
+    addLnag("Python")
+    addLnag("C++")
+    // this ioptimaised way to approch any function in this way above us good this way is an better way to get that
+    function addOptLang(langName){
+        const li = document.createElement('li');
+        li.appendChild(document.createTextNode(langName))
+        document.querySelector('.language').appendChild(li)
+
+    }
+    addOptLang("typescript")
+
+    // Edit // replacing
+    const snLang = document.querySelector('li:nth-child(2)')      /// taking rernce where need to modify''''li''' frem where and , '''nth-child which one'
+    const newli = document.createElement("li")
+    // snLang.innerHTML= "MoJo"  
+    // // on more way to do this
+    
+    newli.textContent = "Mojo"
+    snLang.replaceWith(newli)      // repalcing with oldone with mew
+
+    /// Edit(repalcing) one more way 
+    const fiEle = document.querySelector('li:first-child') /// taking refrnce where we need to modify
+    
+    fiEle.outerHTML='<li>R</li>'
+    /// Removing An Element 
+    const F = document.querySelector('li:first-child')
+    F.remove()
+
+
+</script>
+</html>
