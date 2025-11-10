@@ -23,7 +23,7 @@ const p1 = new Promise(function(resolve, reject) {
  
 })// from this we are calling or consuming promise to perform given task
 
-///++++++++++++++++++ passing data to the resolve
+///++++++++++++++++++ passing data to the resolve+++++ fetching data 
 
 const p2 = new Promise(function(resolve,reject) {
     setTimeout(function () {
@@ -64,10 +64,92 @@ p3.then((user)=>{               ///The then() method of Promise instances takes 
 }).then((username)=>{
     console.log(username);
     
-}).catch(functon(error){       ///The catch() method of Promise instances schedules a function to be called when the promise is rejected. It immediately returns another Promise object, allowing you to chain calls to other promise methods. It is a shortcut for then(undefined, onRejected).
+}).catch(function(error){       ///The catch() method of Promise instances schedules a function to be called when the promise is rejected. It immediately returns another Promise object, allowing you to chain calls to other promise methods. It is a shortcut for then(undefined, onRejected).
     console.log(error);
     (error);
 
     
 }).finally(()=> console.log("promise either resolved or rejected"))
 //The finally() method of Promise instances schedules a function to be called when the promise is settled (either fulfilled or rejected). It immediately returns another Promise object, allowing you to chain calls to other promise methods.
+
+
+
+// ===== Use of async and try catch ==========++++++++++++++++++++
+    
+
+const p4 = new Promise(function(resolve,reject){
+    setTimeout(function () {// using arrow function
+        let error= false
+        if(!error){
+            resolve({username:"asd", email:"abc@example.com", coures:"js"})
+        }else{
+            reject ("JS went wrong")
+
+
+        }
+
+
+        
+    }, 1000);
+})
+
+ async function consumedPromise() {
+    try
+    {
+        const r = await p4
+        console.log(r);
+        
+
+    }catch(error) {
+        console.log(error);
+        
+    }
+    
+    
+ }
+
+
+
+ const p5 = new Promise(function(resolve,reject){
+    setTimeout(function () {// using arrow function
+        let error= false
+        if(!error){
+            resolve({id:"1", email:"abc@example.com", title:"js"})
+        }else{
+            reject ("JS went wrong")
+
+
+        }
+
+
+        
+    }, 1000);
+})
+
+//  async function consumedPromise() {
+//     try
+//     {
+//         const r = await fetch(fetch('https://jsonplaceholder.typicode.com/users'))
+//         const data = await r.json()
+//         console.log(data);
+        
+
+//     }catch(error) {
+//         console.log(error);
+        
+//     }
+    
+    
+//  }
+
+//   writing above with then catch
+
+fetch ('https://jsonplaceholder.typicode.com/users')
+.then((response)=>{
+    return response.json()
+}).then((data)=>{
+    console.log(data);
+    
+})
+.catch((error)=>console.log(error)
+)
